@@ -23,16 +23,16 @@ def generate_heatmap(clicks):
 
     heatmap_data = np.zeros((heatmap_height, heatmap_width))
 
-    # ✅ Vectorized update instead of nested loops
+    #  vectorized update 
     for x, y in clicks:
         if 0 <= x < heatmap_width and 0 <= y < heatmap_height:
-            heatmap_data[int(y), int(x)] += 1  # ✅ No manual flip
+            heatmap_data[int(y), int(x)] += 1 
 
-    # ✅ Apply Gaussian blur to spread heat smoothly (instead of loops)
+    #  Apply Gaussian blur to spread heat smoothly (instead of loops)
     heatmap_data = scipy.ndimage.gaussian_filter(heatmap_data, sigma=5)
 
     plt.figure(figsize=(19.2, 10.8))
-    sns.heatmap(heatmap_data, cmap='coolwarm', cbar=True) #add vmin=0, vmax=10 to make the scale way larger, but the colors will be less visible
+    sns.heatmap(heatmap_data, cmap='coolwarm', cbar=True) #add vmin=0, vmax=10 to make the scale way larger, but the colors will be less visible (suffered for 2 hours because of this)
     plt.savefig(STATIC_PATH)
     plt.close()
 
