@@ -1,9 +1,8 @@
-from flask import request, jsonify, send_from_directory, current_app
+from flask import request, jsonify, send_from_directory, current_app, make_response
 from . import app
 from .models import insert_data
 import os
 import subprocess
-
 
 @app.route('/api/track', methods=['POST'])
 def track():
@@ -22,6 +21,12 @@ def track():
 
     return jsonify({"message": "Data received successfully"}), 200
 
-def serve_static(filename):
-    static_dir = os.path.abspath(os.path.join(current_app.root_path, "../static"))  # Adjusts path
-    return send_from_directory(static_dir, filename)
+# ✅ Add this function right after the /api/track route
+@app.route('/static/heatmap.png')
+def serve_heatmap():
+    static_dir = os.path.abspath(os.path.join(current_app.root_path, "../static"))
+    response = make_response(send_from_directory(static_dir, "heatmap.png"))
+    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    response.headers["Expires"] = "0"
+    response.headers["Pragma"] = "no-cache"
+    return response
