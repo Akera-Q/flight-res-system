@@ -1,12 +1,15 @@
 import React from 'react';
-import Navbar from './components/Navbar';
-import FlightSearchForm from './components/FlightSearchForm';
+import Navbar from "../components/Navbar";
+import FlightSearchForm from '../components/FlightSearchForm';
 import { Dropdown } from 'react-bootstrap';
-import './App.css';
+import "../App.css";
+import InteractionTracker from '../services/InteractionTracker';
 
-const Main = () => {
+
+const App = () => {
   return (
     <>
+    <InteractionTracker />
       <Navbar />
       <div className="parent">
         <div className="div1 photo-container">
@@ -48,7 +51,7 @@ const Main = () => {
         </div>
         <div className="div4">
           <ul class="nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item dropdown">
+            <li className="nav-item dropdown">
             <Dropdown className="nav ms-auto mb-2 mb-lg-0">
               <Dropdown.Toggle
                   className="nav-link dropdown-toggle navbar-menu d-none d-lg-block"
@@ -104,8 +107,13 @@ const Main = () => {
           <FlightSearchForm />
         </div>
       </div>
+      <img 
+        src={`http://127.0.0.1:5000/static/heatmap.png?t=${Date.now()}`} 
+        alt="User Heatmap" 
+        style={{ width: "500px", border: "2px solid black" }}
+      />
     </>
   );
 };
 
-export default Main;
+export default App;
