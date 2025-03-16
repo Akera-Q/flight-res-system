@@ -1,0 +1,131 @@
+body{
+  height: 100vh;
+  margin: 0 auto;
+}
+.navbar{
+  background-color: white;
+}
+.custom-offcanvas{
+  width: 260px ;
+}
+.custom-dropdown{
+  border-top: 1px solid black;
+}
+.navbar-menu{
+  color: black !important;
+}
+/* finished with the navbar, moving on to the next part */
+.parent {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  margin: auto 30px;
+  padding-left: 3%;
+  border-radius: 20px;
+  background-image: url(mountain-landscape-nature-trees-lake-scenery-2-4K.jpg);
+  /* background-image: url("luffys-resolve-under-the-night-sky_800.gif"); */
+  /* background-position: center; */
+  background-size: cover;
+  max-height: 420px;
+  }
+  .div1 { grid-area: 1 / 5 / 7 / 7; }
+
+/* beginning of the sliding photos' animation */
+.photo-container {
+  display: flex;
+  width: 580px;
+  height: 100%;
+  overflow: hidden; 
+  position: relative;
+  gap: 5px;
+  padding: 5px;
+}
+
+.photo-wrapper {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  animation-timing-function: linear;
+  animation-duration: 120s;
+  animation-iteration-count: infinite;
+}
+
+.photo-wrapper.left {
+  animation-name: slideDownUp;
+}
+
+.photo-wrapper.right {
+  animation-name: slideUpDown;
+}
+
+.photo-wrapper img {
+  width: 100%;
+  height: auto;
+  padding: 15px;
+  border-radius: 30px;
+}
+
+/* Keyframes for the left column */
+@keyframes slideDownUp {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-75%); 
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Keyframes for the right column */
+@keyframes slideUpDown {
+  0% {
+    transform: translateY(-200%);
+  }
+  50% {
+    transform: translateY(1%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+  .div2 { grid-area: 2 / 1 / 3 / 5;}
+  .div2 h2{font-family: 'Lobster', cursive; color: white;}
+  .div3 { grid-area: 3 / 1 / 4 / 5; display: flex; flex-direction: row; gap: 50px; margin-left: 30px;}
+  .flightButtonContainer{display: flex; flex-direction: column; align-items: center;}
+  .flightButtons{width: 50px; height: 50px; border: none; background-color: white; border-radius: 7px;}
+  .flightButtons:hover{background-color: aliceblue;}
+  .flightButtons:active{background-color: #007bff; color: white;}
+  .div4 { grid-area: 4 / 1 / 5 / 5; padding: 10px;}
+  .div5 { grid-area: 5 / 1 / 6 / 5; }
+  .flightSearchForm{gap: 5px;}
+  .from-to{min-width: 150px; text-align: left;}
+  .switchFromTo button{border: none; font-size: 18px; background-color: white; border-radius: 10px; transition: transform .5s;}
+  #DatePicker::placeholder{color: black;}
+  .switchFromTo button:active{transform: rotate(360deg);}
+  .dropdown-toggle{background-color: white; color: black;}
+
+  .no-arrow::after {
+    display: none;
+  }
+
+  .custom-dropdown-button{
+    background-color: white;
+    border: 1px solid #DEE2E6;
+  }
+
+/* .glass-btn{
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  transition: background 0.3s ease, transform 0.2s ease;
+  width: fit-content;
+  height: fit-content;
+}
+.glass-btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(1.05);
+} */
