@@ -13,15 +13,14 @@ def track():
     scroll_top = data.get('scrollTop')
     scroll_height = data.get('scrollHeight')
 
-    # ✅ Insert data first
     insert_data(event, x, y, scroll_top, scroll_height)
 
-    # ✅ Now update the heatmap with the latest data
+    #  update the heatmap with the latest data
     subprocess.run(["python", "server/scripts/generate-heatmap.py"])
 
     return jsonify({"message": "Data received successfully"}), 200
 
-# ✅ Add this function right after the /api/track route
+# Add this function riiight after the /api/track route
 @app.route('/static/heatmap.png')
 def serve_heatmap():
     static_dir = os.path.abspath(os.path.join(current_app.root_path, "../static"))
