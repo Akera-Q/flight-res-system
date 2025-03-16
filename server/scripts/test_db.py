@@ -1,8 +1,8 @@
 import sqlite3
 import os
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # Gets 'server/scripts'
-DB_PATH = os.path.join(BASE_DIR, "../app/database.db")  # Moves up to 'server/app'
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # gets 'server/scripts'
+DB_PATH = os.path.join(BASE_DIR, "../app/database.db")  # moves up to 'server/app'
 
 print(f"📂 Database Path: {DB_PATH}")  # Debugging step
 
